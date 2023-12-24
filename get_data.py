@@ -4,10 +4,10 @@ import sys
 from sys import argv
 from snap7.util import *
 client=snap7.client.Client()
-client.connect('169.254.100.200',0,0)
+client.connect('PLC IP address',0,0)
 
 #Siemens datatypes
-datatypes={"db_real":4,"db_int":2,"db_dint":4,"word":2,"int":2}
+datatypes={"db_real":4,"db_int":2,"db_dint":4,"word":2,"int":2,"bool":1}
 
 request=json.loads(argv[1])
 
@@ -50,6 +50,10 @@ for types in request:
                 elif request[types][element]["type"]=="int":
                     get_curr_data=client.db_read(int(address[0]),int(address[1]),2)
                     request[types][element]["value"]=round(struct.unpack('!H', get_curr_data)[0]*int(request[types][element]["rescale"]),int(request[types][element]["precision"]))
+                elif dbs[db][data]["type"]=="bool":
+                    current_value=snap7.util.get_bool(get_curr_data,0,int(10*float(data)-10*int(data)))
+                     
+                    
 print(json.dumps(request))
 
 def get_dint(_bytearray, byte_index):
