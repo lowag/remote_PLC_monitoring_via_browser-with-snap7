@@ -1,9 +1,11 @@
 <?php
-if (isset($_GET['page']) && in_array($_GET['page'],array("estop","unwinder","edgeguide","splicing","knifesystem","rewinder_stripper","trolley","run_jog_stop","hydraulics","recipe","alarms")))
+$files = scandir('json_dict');
+if (isset($_GET['page']) && in_array($_GET['page'],$files))
 {
+//change the path
 $json=file_get_contents("/var/www/json_dicts/".$_GET['page'].".json");
 
-$json_data=exec("python3.10 get_data.py '".$json."'");
+$json_data=exec("python3 get_data.py '".$json."'");
 }
 else if (isset($_GET['page']))
 die("Invalid GET request!");
@@ -29,10 +31,10 @@ include("styles/style.css");
 <div id="left-panel">
 <?php
 echo "<h1>".gettext("Machine_name")."</h1>";
-echo "<div><a href=\"index.php?page=estop\" id=\"estop\">".gettext("Estop")."</a></div>\n";
-echo "<div><a href=\"index.php?page=run_jog_stop\" id=\"run_jog_stop\">".gettext("Run, jog, stop")."</a></div>\n";
-echo "<div><a href=\"index.php?page=hydraulics\" id=\"hydraulic\">".gettext("Hydraulics")."</a></div>\n";
-echo "<div><a href=\"index.php?page=recipe\" id=\"recipe\">".gettext("Recipe")."</a></div>\n";
+
+foreach ($files as $f){
+echo "<div><a href=\"index.php?page=".basename($f, ".json")."\" id=\"".basename($f, ".json")."\">".ucfirst(basename($f, ".json"))."</a></div>\n";
+}
 
 ?>
 
