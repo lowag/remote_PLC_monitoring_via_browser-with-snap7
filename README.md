@@ -8,11 +8,12 @@ OS: Armbian (Cli, fit for the used hardware), for IOT2050 the example image from
 2. Install the python wrapper and the json module:
   pip3 install python-snap7 json
 3. Place all files from this repo to your webserver root (probably it is /var/www/htdocs or /var/www)
-4. Set the PLC's address,slot number, rack number in the gwt_data.py
-5. Create json files with correct addresses to the json_dicts directory. You can find samples there.
-6. Connect the (an) ethernet port to the PLC's network and set its IP address.
-7. Connect the other port to your local network.
-8. Try reaching the webserver on your device. If everything perfect you will see an ugly page with some clickable menu items on left.
-9. With every click or reload you can update the info you see to the actual status.     
+4. Set the PLC's address,slot number, rack number in the get_data.py
+5. Change the absolute path to the json_dict in the index.php
+6. Create json files with correct addresses to the json_dicts directory. You can find samples there.
+7. Connect the (an) ethernet port to the PLC's network and set its IP address.
+8. Connect the other port to your local network.
+9. Try reaching the webserver on your device. If everything perfect you will see an ugly page with some clickable menu items on left.
+10. With every click or reload you can update the info you see to the actual status.     
 
 
