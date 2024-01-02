@@ -13,7 +13,7 @@ OS: Armbian (Cli, fit for the used hardware), for IOT2050 the example image from
 6. Create json files with correct addresses to the json_dicts directory. You can find samples there.
 7. Connect the (an) ethernet port to the PLC's network and set its IP address.
 8. Connect the other port to your local network.
-9. Try reaching the webserver on your device. If everything perfect you will see an ugly page with some clickable menu items on left.
+9. Try reaching the webserver on your device. If everything perfect you will see a simple page with some clickable menu items on left.
 10. With every click or reload you can update the info you see to the actual status.     
 
 
