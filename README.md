@@ -4,7 +4,7 @@ For troubleshooting purpose.
 Hardware: Orange Pi Zero, Orange Pi Zero2, Orange Pi PC Plus or any other single-board computer (or PC) which has an ethernet port (connect to Profinet) and a second network port (WIFI or ethernet) connected to the local network. If you prefer the industrial version you can use IOT2050 from Siemens.
 Software:
 OS: Armbian (Cli, fit for the used hardware), for IOT2050 the example image from Siemens
-1. After the OS installation install snap7: https://python-snap7.readthedocs.io/en/latest/installation.html
+1. After the OS and webserver installation install snap7: https://python-snap7.readthedocs.io/en/latest/installation.html
 2. Install the python wrapper and the json module:
   pip3 install python-snap7 json
 3. Place all files from this repo to your webserver root (probably it is /var/www/htdocs or /var/www)
